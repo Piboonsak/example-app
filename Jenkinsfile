@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
        
-        app = docker.build("piboonsak/example-app")
+        app = docker.build('piboonsak/example-app')
 
     }
 
@@ -24,7 +24,7 @@ node {
     stage('Push image') {
         /* Finally, we'll push the image into Docker Hub */
 
-        docker.withRegistry('http://registry.hub.docker.com', 'piboonsak'){
+        docker.withRegistry('https://registry.hub.docker.com', 'piboonsak'){
             app.push("latest")
         }
     }
